@@ -23,6 +23,7 @@ export: true
 transition: slide-left
 # enable Comark Syntax: https://comark.dev/syntax/markdown
 comark: true
+download: true
 # duration of the presentation
 duration: 35min
 layout: cover
