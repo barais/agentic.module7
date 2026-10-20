@@ -157,7 +157,7 @@ layout: two-cols-header
 </div>
 <div class="text-center text-2xl">⬇ 🔑 API (Bearer)</div>
 <div class="border rounded-lg p-4 shadow-sm bg-white">
-  <b>ILaaS — cloud souverain de l'ESR</b><br/>
+  <b>ILaaS: cloud souverain de l'ESR</b><br/>
   · Passerelle LiteLLM<br/>
   · Modèles : Qwen, Mistral, Gemma…<br/>
   · <i>devllm.ilaas.fr</i>
@@ -205,40 +205,6 @@ layout: cover
 layout: default
 ---
 
-# L'Émergence de l'AI Co-Scientist
-
-L'IA en recherche ne se limite plus à la recherche de mots-clés : elle devient un partenaire d'expérimentation.
-
-<div class="grid grid-cols-3 gap-4 mt-6 text-xs">
-
-<div class="p-4 border rounded-xl bg-gray-50 dark:bg-gray-800">
-  <div class="text-violet-500 font-bold text-sm mb-2">1. Exploration & Synthèse</div>
-  <div class="text-gray-400 italic mb-2">Deep Research</div>
-  <p>Lire, croiser et synthétiser des centaines d'articles PDF, identifier les zones de controverse et les données manquantes.</p>
-</div>
-
-<div class="p-4 border-2 border-violet-500 rounded-xl bg-violet-50 dark:bg-violet-950">
-  <div class="text-violet-600 font-bold text-sm mb-2">2. Génération d'Hypothèses</div>
-  <div class="text-gray-400 italic mb-2">Virtual Labs</div>
-  <p>Concevoir des protocoles, débattre entre agents spécialisés (chimie, immunologie) et proposer des cibles thérapeutiques.</p>
-</div>
-
-<div class="p-4 border rounded-xl bg-gray-50 dark:bg-gray-800">
-  <div class="text-violet-500 font-bold text-sm mb-2">3. Exécution & Calcul</div>
-  <div class="text-gray-400 italic mb-2">In Silico ➔ In Vitro</div>
-  <p>Écrire des pipelines de docking, analyser des données omiques et piloter des automates de paillasse robotisés.</p>
-</div>
-
-</div>
-
-<div class="mt-6 p-3 bg-violet-50 dark:bg-violet-950 border border-violet-400/40 rounded text-center text-xs">
-  💡 <b>Objectif visé :</b> Libérer les chercheurs des tâches mécaniques pour démultiplier le temps dédié à la créativité et à l'esprit critique.
-</div>
-
----
-layout: default
----
-
 # 1. Recherche Bibliographique : Le "Deep Research"
 
 Comment les agents dépassent les moteurs classiques (Google Scholar, PubMed) ?
@@ -254,18 +220,25 @@ Comment les agents dépassent les moteurs classiques (Google Scholar, PubMed) ?
   3. Téléchargement et lecture exhaustive des PDF complets (pas seulement l'Abstract).
   4. Suivi itératif des graphes de citations (*Forward & Backward snowballing*).
   5. Synthèse rédigée avec mise en tableau des preuves et extraction des tailles d'effet ($p$-values, effect sizes).
+  6. ⚠️ **Le snowballing n'est pas un protocole PRISMA** : l'agent n'applique pas de critères d'inclusion/exclusion explicites ni de double extraction indépendante — c'est l'expert humain qui s'en charge.
 
 </div>
 
-<div class="p-4 bg-gray-900 text-gray-100 rounded-xl font-mono text-[11px] leading-relaxed">
-  <div class="text-violet-400 font-bold">// Log d'un agent de recherche bibliographique :</div>
-  <div class="text-gray-400 mt-2">1. RECHERCHE : "CRISPR off-target detection methods 2024..2026"</div>
-  <div class="text-gray-400">2. ANALYSE : 42 articles récupérés.</div>
-  <div class="text-amber-300 mt-1">⚠️ DIVERGENCE DÉTECTÉE :</div>
-  <div class="text-gray-300">L'article A (Nature Biotech) affirme une sensibilité de 99% pour GUIDE-seq, mais l'article B (Cell) montre un biais sur les régions hétérochromatiques.</div>
-  <div class="text-emerald-400 mt-1">3. ACTION : Téléchargement des articles C et D pour trancher le consensus méthodologique.</div>
+<div class="p-3 border rounded-xl bg-gray-50 dark:bg-gray-800 space-y-2">
+  <div class="p-4 bg-gray-900 text-gray-100 rounded-xl font-mono text-[11px] leading-relaxed">
+    <div class="text-violet-400 font-bold">// Log d'un agent de recherche bibliographique :</div>
+    <div class="text-gray-400 mt-2">1. RECHERCHE : "CRISPR off-target detection methods 2024..2026"</div>
+    <div class="text-gray-400">2. ANALYSE : 42 articles récupérés.</div>
+    <div class="text-amber-300 mt-1">⚠️ DIVERGENCE DÉTECTÉE :</div>
+    <div class="text-gray-300">L'article A (Nature Biotech) affirme une sensibilité de 99% pour GUIDE-seq, mais l'article B (Cell) montre un biais sur les régions hétérochromatiques.</div>
+    <div class="text-emerald-400 mt-1">3. ACTION : Téléchargement des articles C et D pour trancher le consensus méthodologique.</div>
+  </div>
+  <div class="p-2 bg-rose-50 dark:bg-rose-950 border border-rose-400 rounded text-[11px]">
+    🚨 <b>Le piège symétrique :</b> les LLM génèrent des <b>références plausibles mais inexistantes</b> — de 14 % à 95 % de citations fantômes selon les modèles et domaines (benchmark GhostCite, 375 000 citations testées). La vérification systématique des références (et le re-contrôle de <i>chaque</i> valeur chiffrée extraite) est non négociable.
+  </div>
 </div>
 </div>
+
 
 ---
 layout: default
@@ -293,6 +266,9 @@ Remplacer les manipulations manuelles sous Excel par des analyses statistiques s
   <div class="p-2 bg-rose-50 dark:bg-rose-950 border border-rose-400 rounded text-[11px]">
     🛡️ <b>Contre-mesure :</b> Imposer dans le prompt de l'agent l'application systématique de corrections pour tests multiples (Bonferroni, Benjamini-Hochberg FDR).
   </div>
+  <div class="p-2 bg-amber-50 dark:bg-amber-950 border border-amber-400 rounded text-[11px]">
+    ⚠️ <b>Confiance non calibrée :</b> un LLM n'exprime pas son incertitude de façon fiable — toute valeur extraite ($p$, taille d'effet, effectif) doit être <b>retracée à la source</b> par l'expert.
+  </div>
 </div>
 </div>
 
@@ -302,7 +278,7 @@ layout: default
 
 # 3. Découverte Assistée : Les "Virtual Labs" (Stanford)
 
-L'équipe de **James Zou** (Stanford, *Nature 2025* / *Science 2026*) a formalisé le concept de **laboratoire virtuel multi-agents**.
+**Swanson, Wu, Bulaong, Pak & Zou** (*Nature* 2025 — Virtual Lab) puis **Zhang et al.** (*Science* 2026 — Virtual Biotech) ont formalisé le concept de **laboratoire virtuel multi-agents**.
 
 <div class="mt-2 flex justify-center [&>svg]:max-w-4xl">
 
@@ -328,17 +304,18 @@ flowchart LR
 
 </div>
 
-<div class="grid grid-cols-3 gap-3 mt-4 text-xs">
-  <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
-    <b>Réunions d'équipe simulées :</b> Les agents débattent, se contredisent et raffinent une hypothèse commune avant d'écrire la moindre ligne de code.
-  </div>
-  <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
-    <b>Cas réel (Nature 2025) :</b> Le Virtual Lab a conçu 92 nano-anticorps contre le SARS-CoV-2 ; validés expérimentalement en vrai labo (*wet lab*).
-  </div>
-  <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
-    <b>Échelle (Science 2026) :</b> Extension en "Virtual Biotech" avec 37 000 agents analysant 55 000 essais cliniques pour prédire la réussite de molécules.
-  </div>
-</div>
+---
+layout: default
+---
+
+# 3. Découverte Assistée : Les "Virtual Labs" (Stanford)
+
+
+<div class=“grid grid-cols-3 gap-3 mt-4 text-xs”> <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800"> <b>Réunions d’équipe simulées :</b> Les agents débattent, se contredisent et raffinent une hypothèse commune avant d’écrire la moindre ligne de code. </div> <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800"> <b>Cas réel (Nature 2025) :</b> Le Virtual Lab a conçu <b>92 nano-anticorps</b> contre le SARS-CoV-2 (pipeline ESM, AlphaFold-Multimer, Rosetta), ensuite produits et <b>validés en wet lab</b> (CZ Biohub), dont 2 designs à affinité <i>accrue</i> sur les variants JN.1/KP.3. </div> <div class="p-2 border rounded bg-gray-50 dark:bg-gray-800"> <b>Échelle (Science 2026) :</b> « Virtual Biotech » : 37 000 agents ont annoté <b>55 984 essais cliniques</b> en moins d’une semaine. Résultat : les cibles spécifiques d’un <b>type cellulaire</b> ont <b>+48 % de chances d’atteindre le marché</b> (−32 % d’effets indésirables). </div> </div>
+
+<div class="mt-3 p-2 border-l-4 border-emerald-400 bg-emerald-50 rounded text-[11px]""> ✅ <b>Validation externe :</b> un design de l’agent, un conjugué anticorps-médicament (ADC) anti-B7-H3 pour le cancer du poumon, a été <b>retrouvé indépendamment</b> par un grand laboratoire pharmaceutique la même année, puis obtention du statut FDA <i>breakthrough therapy</i>. </div>
+
+<div class="mt-2 text-[11px] text-gray-500 italic"> Sources : Swanson et al., <i>Nature</i> 646, 716–723 (2025) · Zhang et al., « The Virtual Biotech », <i>Science</i> (2026) · Stanford Medicine News. </div>
 
 ---
 layout: default
@@ -449,31 +426,58 @@ layout: default
 
 Un modèle de langage ne dispose d'aucune prise directe avec les lois physiques de l'Univers.
 
-<div class="grid grid-cols-2 gap-6 mt-4 text-xs">
+<div class="grid grid-cols-2 gap-1 mt-2 text-xs">
 
-<div class="p-3 border rounded bg-gray-50 dark:bg-gray-800">
-  <div class="font-bold text-rose-500 text-sm mb-2">1. Vraisemblance Textuelle $\neq$ Vérité Empirique</div>
+<div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
+  <div class="font-bold text-rose-500 text-sm mb-2">1. Vraisemblance Textuelle ≠ Vérité Empirique</div>
   <ul class="space-y-1">
-    <li>• Un LLM optimise la cohérence statistique des mots.</li>
-    <li>• Il peut générer une hypothèse biologique <b>magnifiquement rédigée, élégante, logique... mais biologiquement totalement fausse</b>.</li>
-    <li>• Seule la paillasse ou la mesure expérimentale tranche.</li>
+    <li>Un LLM optimise la cohérence statistique des mots.</li>
+    <li>Il peut générer une hypothèse biologique <b>magnifiquement rédigée, élégante, logique... mais biologiquement totalement fausse</b>.</li>
+    <li>Seule la paillasse ou la mesure expérimentale tranche.</li>
   </ul>
 </div>
 
-<div class="p-3 border rounded bg-gray-50 dark:bg-gray-800">
+<div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
   <div class="font-bold text-rose-500 text-sm mb-2">2. Biais de Confirmation et "Echo Chambers"</div>
   <ul class="space-y-1">
-    <li>• Si le chercheur oriente son prompt (*« Démontre pourquoi le gène A cause B »*), l'agent va chercher des indices confirmatoires en ignorant les contre-preuves.</li>
-    <li>• Hallucination subtile de citations existantes (attribuer une conclusion réelle au mauvais auteur).</li>
+    <li>Si le chercheur oriente son prompt (« <i>Démontre pourquoi le gène A cause B</i> »), l'agent va chercher des indices confirmatoires en ignorant les contre-preuves.</li>
+    <li>Hallucination subtile de citations existantes (attribuer une conclusion réelle au mauvais auteur).</li>
   </ul>
 </div>
 
-<div class="p-3 border rounded bg-gray-50 dark:bg-gray-800 col-span-2">
-  <div class="font-bold text-amber-500 text-sm mb-1">3. L'Indispensable Responsabilité de l'Expert Humain</div>
+<div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
+  <div class="font-bold text-rose-500 text-sm mb-2">3. Citations Fantômes : un Risque Mesuré</div>
+  <ul class="space-y-1">
+    <li>Références <b>plausibles mais inexistantes</b> : 14 % à 95 % selon les modèles et domaines (benchmark GhostCite, 375 000 citations).</li>
+    <li>Audit de 111 M de références (arXiv, bioRxiv, SSRN, PMC) : <b>≈ 147 000 citations inexistantes rien qu'en 2025</b>.</li>
+    <li>D'où la règle : toute référence et toute valeur chiffrée issues d'un agent doivent être <b>vérifiées contre la source</b>.</li>
+  </ul>
+</div>
+
+<div class="p-2 border rounded bg-gray-50 dark:bg-gray-800">
+  <div class="font-bold text-rose-500 text-sm mb-2">4. Confiance Non Calibrée</div>
+  <ul class="space-y-1">
+    <li>Un LLM ne sait pas <b>mesurer son propre doute</b> : il peut affirmer avec la même assurance un fait avéré et une invention.</li>
+    <li>Une $p$-value ou une taille d'effet « extraite » par l'agent n'est pas une validation — c'est une <b>hypothèse de lecture</b> à re-contrôler.</li>
+  </ul>
+</div>
+
+<div class="p-2 border rounded bg-gray-50 dark:bg-gray-800 col-span-2">
+  <div class="font-bold text-amber-500 text-sm mb-1">5. L'Indispensable Responsabilité de l'Expert Humain</div>
   L'agent n'a pas de statut juridique ni de conscience déontologique. La signature d'un article scientifique engage la responsabilité morale et pénale du chercheur humain face à la fraude ou à l'erreur méthodologique.
 </div>
 
 </div>
+
+<style>
+  li {
+    font-size:0.85em;
+  }
+  h1 {
+    font-size: 1.7em;
+    
+  }
+</style>
 
 ---
 layout: default
@@ -601,7 +605,7 @@ Demain, « faire sa présentation » ou « relire un papier » se fera ainsi : <
 layout: cover
 ---
 
-# iLaaS, un catalogue de modèles LLM souverains pour l'ESR 
+# ILaaS, un catalogue de modèles LLM souverains pour l'ESR 
 
 ## => une infrastructure de recherche indispensable pour l'ESR
 
