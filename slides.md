@@ -668,7 +668,7 @@ class: text-center
 # Fin du Module 7
 ### Échanges, débats épistémologiques & questions !
 
-En route vers [Module 8 : Évaluation, Sécurité &amp; Limites 🚀](https://olivier.barais.fr/agentic.module8/)
+En route vers [Évaluation, Sécurité &amp; Limites 🚀](https://olivier.barais.fr/agentic.module8/)
 
 
 [The Virtual Lab (Nature 2025)](https://doi.org/10.1038/s41586-025-09442-9) · [Virtual Biotech (Science 2026)](https://doi.org/10.1126/science.aeg6779)
